@@ -44,6 +44,20 @@ class LinkedList {
     }
     this.length--;
   }
+
+  reverse(head) {
+    let current = this.head;
+    let previous;
+    let temp;
+
+    while (current) {
+      temp = current.next;
+      current.next = previous;
+      previous = current;
+      current = temp;
+    }
+    return previous;
+  }
 }
 
 let LL = new LinkedList();
