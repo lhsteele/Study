@@ -1,4 +1,5 @@
 /*
+- largest elements "bubbles up" to the top/end of array
 - not efficient
 - not commonly used / useful in production code
 */
