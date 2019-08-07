@@ -1,6 +1,8 @@
 /*
 Divide and conquer
 need a helper function to merge two sorted arrays
+Time: O(n log(n))
+Space: O(n)
 */
 
 function merge(arr1, arr2) {

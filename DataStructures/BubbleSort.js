@@ -2,6 +2,8 @@
 - largest elements "bubbles up" to the top/end of array
 - not efficient
 - not commonly used / useful in production code
+- Time: O(n^2)
+- Space: O(1)
 */
 
 function bubbleSort(arr) {
