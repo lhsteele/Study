@@ -15,6 +15,10 @@ Queue: FIFO
 front => first node
 back => last node
 length => number of nodes in queue
+
+insertion => enqueue()
+deletion => dequeue() 
+length => size()
 */
 
 class Node {
@@ -64,14 +68,64 @@ class Stack {
   }
 }
 
-let stack = new Stack()
-stack.push(1)
-stack.push(2)
-stack.push(3)
-console.log(stack)
-stack.pop()
-stack.pop()
-console.log(stack)
-console.log(stack.size());
+// let stack = new Stack()
+// stack.push(1)
+// stack.push(2)
+// stack.push(3)
+// console.log(stack)
+// stack.pop()
+// stack.pop()
+// console.log(stack)
+// console.log(stack.size());
+
+
+class Queue {
+  constructor() {
+    this.front = null;
+    this.back = null;
+    this.length = 0;
+  }
+
+  enqueue(val) {
+    let newNode = new Node(val);
+    
+    if (!this.front) {
+      this.front = newNode;
+      this.back = newNode;
+    } else {
+      this.back.next = newNode;
+      this.back = newNode;
+    }
+    return ++this.length
+  }
+
+  dequeue() {
+    if (!this.front) return null;
+
+    const temp = this.front;
+    if (this.front === this.back) {
+      this.back = null;
+    }
+    this.front = this.front.next;
+    this.length--;
+
+    return temp.value;
+  }
+
+  size() {
+    return this.length;
+  }
+}
+
+let queue = new Queue();
+queue.enqueue("a")
+queue.enqueue("b")
+queue.enqueue("c")
+queue.enqueue("d")
+console.log(queue)
+queue.dequeue()
+queue.dequeue()
+console.log(queue)
+console.log(queue.size());
 
 
