@@ -42,7 +42,7 @@ class LinkedList {
       }
       previous.next = currentNode.next;
     }
-    this.length--;
+    return this.length--;
   }
 
   reverse(head) {
@@ -67,3 +67,9 @@ LL.addToTail(3)
 console.log(LL);
 LL.removeNode(2)
 console.log(LL);
+
+function createBase(a) {
+  return function(b) {
+    a + b
+  }
+}

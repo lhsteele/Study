@@ -13,7 +13,7 @@ fs.readFile('myTxt.txt', 'utf8', function(err, data) {
 fs.readFile('myJSON.json', 'utf8', function(err, data) {
   let players = JSON.parse(data);
   for (player in players) {
-    // console.log(players[player].Player)
+    console.log(players[player].Player)
   }
 })
 
@@ -22,7 +22,9 @@ fs.readFile('myCSV.csv', 'utf8', function(err, data) {
   let csvData = data;
   
   csvData.split('\n').forEach((entry, i) => {
-    console.log(`${i + 1}:${entry}`);
+    let site = entry.split(",")[0]
+    let url = entry.split(",")[1]
+    console.log(`${i + 1}. ${site}:${url}`);
     
   })
 })
