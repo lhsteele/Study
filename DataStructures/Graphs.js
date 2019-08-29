@@ -60,7 +60,9 @@ function depthFirstStr(node, graph, visited=new Set()) {
 
 // in the case where you might have a graph with two connected components 
 //    (two trees which are not connected, but still part of the same graph)
-// you need to have a helper function which is the recursive function
+// you need to have a helper function which is the recursive function which still does the same job
+//    it will explore a full connected region of a graph
+// the main dfsForAll function will 'bridge' the gap
 function dfsForAll(graph) {
   let visited = new Set();
 
@@ -79,3 +81,40 @@ function dfsRecursive(node, graph, visited) {
     dfsRecursive(neighbor, graph, visited)
   })
 }
+
+let forest = {
+  'h': ['i', 'j'],
+  'i': [],
+  'j': ['k'],
+  'k': [],
+  'l': ['m'],
+  'm': []
+}
+
+// if we use the two functions on the above:
+// first enter the dfsForAll and the for loop begins on 'h'
+// we then enter the dfsRecursive, and explore the 'local' region as far as possible.
+//    this means we would visit 'h', 'i', 'j', 'k'
+// *we are adding these to 'visited' as we go
+// then we return to the main function, and continue in the loop until we find a node we haven't visited yet
+//    (thanks to our visited set)
+// we would then hit 'l', and explore it's local region as far as possible, etc etc ... 
+// and finally hitting the last node 'm'
+
+
+// Breadth First Search on a Graph:
+function bfs(node, target) {
+  let queue = [node];
+  let visited = new Set();
+
+  while (queue.length) {
+    let currNode = queue.shift();
+    if (visited.has(currNode)) continue;
+    visited.add(currNode);
+    if (currNode.value === target) return currNode;
+
+    queue.push(...currNode.neighbors)
+  }
+  return null;
+}
+
