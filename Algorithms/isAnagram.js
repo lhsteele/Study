@@ -15,7 +15,7 @@ function isAnagram(str1, str2) {
       letterMap[current] ++
     }
   }
-
+  
   for (let j = 0; j < str2.length; j++) {
     let current = str2[j].toLowerCase();
     if (letterMap[current]) {
@@ -24,10 +24,10 @@ function isAnagram(str1, str2) {
       return false;
     }
   }
-
-  return true;
+  return Object.values(letterMap).every(el => el === 0) ? true : false;
 }
 
+console.log(isAnagram("cool", "coolc"));
 console.log(isAnagram("Listen", "silent"));
 console.log(isAnagram("apple", "orange"));
 console.log(isAnagram("elvis", "lives"));
