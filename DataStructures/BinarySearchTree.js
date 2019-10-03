@@ -38,6 +38,7 @@ function isBalanced(root) {
     if ((maxHeight - minHeight) > 1) return false;
 
     let [currentNode, level] = stack.pop();
+    
     if (currentNode) {
       // Depth First search 
       // when to return false? 

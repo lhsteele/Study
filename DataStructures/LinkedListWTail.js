@@ -89,7 +89,7 @@ class LinkedList {
   }
 
   get(index) {
-    if (index < 0 || index > this.length) return null;
+    if (index < 0 || index > this.length - 1) return null;
 
     let currentNode = this.head;
     let counter = 0;
