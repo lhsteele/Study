@@ -35,7 +35,9 @@ const fixParentheses = (str) => {
     } else {
       open--;
     }
+    console.log(res)
     res += char;
+    console.log(res)
   }
 
   return res + ')'.repeat(open);
